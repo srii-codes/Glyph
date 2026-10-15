@@ -24,16 +24,29 @@ Emoji Source (UTF-8)
 
 ## Language Specification
 
-| Emoji | Codepoint | Token | Meaning |
-|---|---|---|---|
-| 🖨 | U+1F5A8 | PRINT | Output statement |
-| 🔢 | U+1F522 | NUM_PREFIX | Marks following digits as a number |
-| ➕ | U+2795 | PLUS | Addition |
-| ➖ | U+2796 | MINUS | Subtraction |
-| ✖ | U+2716 | MUL | Multiplication |
-| ➗ | U+2797 | DIV | Division |
-| 🔁 | U+1F501 | LOOP | Loop construct |
-| ❓ | U+2753 | IF | Conditional construct |
+
+| Emoji | Codepoint | Token | Meaning  |
+| :---: | :--- | :--- | :--- |
+| 🖨 | `U+1F5A8` | `PRINT` | Output statement |
+| ➕ | `U+2795` | `PLUS` | Addition operator |
+| ➖ | `U+2796` | `MINUS` | Subtraction operator |
+| ✖ | `U+2716` | `MUL` | Multiplication operator |
+| ➗ | `U+2797` | `DIV` | Division operator |
+| 🟰 | `U+1F7F0` | `EQ` | Equality comparison operator |
+| 📉 | `U+1F4C9` | `LT` | Less-than comparison operator |
+| 📈 | `U+1F4C8` | `GT` | Greater-than comparison operator |
+| 🔁 | `U+1F501` | `LOOP` | While loop construct |
+| ❓ | `U+2753` | `IF` | Conditional branching construct |
+| 📥 | `U+1F4E5` | `ASSIGN` | Variable assignment operator |
+| 🐱 | `U+1F431` | `VAR (cat)` | Variable identifier (ID 0) |
+| 🐶 | `U+1F436` | `VAR (dog)` | Variable identifier (ID 1) |
+| 🐸 | `U+1F438` | `VAR (frog)` | Variable identifier (ID 2) |
+| 🏭 | `U+1F3ED` | `DEF` | Begins a function definition block |
+| 🔚 | `U+1F51A` | `END` | Closes a block (`DEF`, `IF`, `LOOP`) |
+| 🔙 | `U+1F519` | `RETURN` | Returns a value from a function |
+| 🦊 | `U+1F98A` | `FUNC (fox)` | Function-name identifier (ID 0) |
+| 🦁 | `U+1F981` | `FUNC (lion)` | Function-name identifier (ID 1) |
+| 🐻 | `U+1F43B` | `FUNC (bear)` | Function-name identifier (ID 2) |
 
 
 
