@@ -39,46 +39,31 @@ Emoji Source (UTF-8)
 
 ## Example
 
-Input ('input.txt'):
-🖨 5 ➕ 3 ✖ 2
-❓ 5 🖨 10
-🔁 3 🖨 1
+The default `input.glf` demonstrates a recursive factorial function:
 
-Output:
--- Statement 1: AST ---
-PRINT
-BINOP(+)
-NUM(5)
-BINOP(*)
-NUM(3)
-NUM(2)
+```text
+🏭 🦊 🐱
+	❓ 🐱 📉 🔢2
+		🔙 🔢1
+	🔚
+	🔙 🐱 ✖ 🦊 🐱 ➖ 🔢1
+🔚
+🖨 🦊 🔢5
+```
 
---- Statement 2: AST ---
-IF
-COND:
-NUM(5)
-BODY:
-PRINT
-NUM(10)
-
---- Statement 3: AST ---
-LOOP
-COUNT:
-NUM(3)
-BODY:
-PRINT
-NUM(1)
+Both the interpreter and generated Python print `120`.
 
 
 
 ## Build and run
 
 ```bash
-gcc glyph.c -o glyph
-./glyph
+gcc main.c glyph_lexer.c glyph_parser.c glyph_ast.c glyph_interpreter.c glyph_ir.c glyph_optimizer.c glyph_codegen.c -o main
+./main
+python output.py
 ```
 
-The program reads from 'input.txt' in the same directory — create that file (UTF-8 encoded) with your Glyph program, one statement per line, ending with a blank line.
+By default, the compiler reads `input.glf` and writes `output.py` in the current directory. Optional arguments select other paths: `./main source.glf generated.py`.
 
 ## Known Technical Challenges
 

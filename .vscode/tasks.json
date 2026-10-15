@@ -12,6 +12,9 @@
                 "${workspaceFolder}/glyph_parser.c",
                 "${workspaceFolder}/glyph_ast.c",
                 "${workspaceFolder}/glyph_interpreter.c",
+                "${workspaceFolder}/glyph_ir.c",
+                "${workspaceFolder}/glyph_optimizer.c",
+                "${workspaceFolder}/glyph_codegen.c",
                 "-o",
                 "${workspaceFolder}/main.exe"
             ],

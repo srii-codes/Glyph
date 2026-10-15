@@ -99,19 +99,20 @@ void interpret(Node *program) {
     sp = 0;
     for(int i=0; i<3; i++) stack[sp].assigned[i] = 0;
 
-    /* Pass 2: Execute global statements */
-    long dummy_ret;
+    /* Pass 2: Execute global statements one at a time.
+       NOTE: We must save curr->next BEFORE dispatching, because exec_block
+       for a LOOP node internally re-evaluates the condition repeatedly and
+       must NOT have its next pointer clobbered. */
+    long dummy_ret = 0;
     curr = program->body;
     while (curr) {
+        Node *next_stmt = curr->next; /* save next BEFORE any mutation */
         if (curr->type != NODE_FUNC_DEF) {
-            /* Create a temporary one-statement block to reuse exec_block logic */
             Node temp_block = { .type = NODE_BLOCK, .body = curr };
-            curr->next = NULL; /* Detach rest of program temporarily */
-
+            curr->next = NULL; /* isolate this single statement */
             exec_block(&temp_block, &dummy_ret);
-
-            curr = curr->next; /* This requires saving the real next ptr, let's fix below */
+            curr->next = next_stmt; /* restore after execution */
         }
-        curr = curr->next;
+        curr = next_stmt;
     }
 }
